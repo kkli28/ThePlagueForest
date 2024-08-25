@@ -22,7 +22,7 @@ public class Enemy : Character
     protected BulletShooter mBulletShooter;
     protected bool mIsOnCollidePlayer;
     protected bool mIsOnShoot;
-    protected String mName="";
+    protected string mName="";
     protected float mdeathAnimationTime;
 
 

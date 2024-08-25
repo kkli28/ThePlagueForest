@@ -32,7 +32,7 @@ public class Player : Character
         Camera.main.transform.SetParent(this.transform,false);
          //创建王冠图片
         mCrownObject=CrownObject.Create();
-        mNearEnemy=new Enemy();
+        mNearEnemy=null;
     }
 
     private void IsBorder()

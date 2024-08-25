@@ -42,7 +42,7 @@ public class Bullet : FightObject
     public virtual void OnCollideCharacter(Character target)
     {
         DamageInfo damageInfo=new DamageInfo(mSource,target,mPoints,this,null);
-        if(mIsPenetrate&&mPenetrateCount!=0)
+        if(mIsPenetrate)
         {
             if(mIgnoreList.Contains(target))
             {
@@ -52,8 +52,18 @@ public class Bullet : FightObject
             {
                 mIgnoreList.Add(target);
                 FightSystem.Damage(damageInfo);
-                target.PlayHurtSound();
+
+                if (mIgnoreList.Count == 1)
+                {
+                    target.PlayHurtSound();
+                }
+
                 mPenetrateCount--;
+                if (mPenetrateCount <= 0)
+                {
+                    mIsDead = true;
+                    return;
+                }
             }
         }
         else

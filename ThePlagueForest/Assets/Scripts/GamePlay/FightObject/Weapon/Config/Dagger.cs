@@ -39,6 +39,7 @@ public class Dagger:Weapon
             Vector3 direction=(nearEnemy.transform.position-bulletDagger.transform.position).normalized;
             bulletDagger.transform.rotation=FightUtility.DirectionToRotation(direction);
             FightModel.GetCurrent().AddPlayerBullet(bulletDagger);
+            Debug.Log("Add Dagger Bullet");
         },shootTime,DefaultShootRange);
         Player.GetCurrent().AddBulletShooter(shooter);
     }
